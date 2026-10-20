@@ -1,0 +1,46 @@
+.track {
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgb(244 244 245);
+}
+
+.bar {
+  height: 100%;
+  width: 38%;
+  border-radius: inherit;
+  background: #a94435;
+  animation: photo-studio-progress 1.35s ease-in-out infinite;
+}
+
+@keyframes photo-studio-progress {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  50% {
+    transform: translateX(85%);
+  }
+
+  100% {
+    transform: translateX(270%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    width: 100%;
+    animation: photo-studio-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes photo-studio-pulse {
+    0%,
+    100% {
+      opacity: 0.45;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+}

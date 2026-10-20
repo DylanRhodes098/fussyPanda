@@ -1,0 +1,67 @@
+services:
+  - type: web
+    name: fussy-panda-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm run db:migrate && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: EMAIL_HOST
+        sync: false
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_SECURE
+        value: "false"
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASSWORD
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: SIGNUP_NOTIFICATION_EMAIL
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: TRUST_PROXY
+        value: "true"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_PRIVATE_STORAGE_BUCKET
+        sync: false
+      - key: SUPABASE_PREVIEW_STORAGE_BUCKET
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_IMAGE_MODEL
+        sync: false
+      - key: OPENAI_QA_MODEL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_PHOTO_STUDIO_BASIC_PRICE_ID
+        sync: false
+      - key: STRIPE_PHOTO_STUDIO_PRO_PRICE_ID
+        sync: false
+      - key: STRIPE_PHOTO_STUDIO_ENTERPRISE_PRICE_ID
+        sync: false

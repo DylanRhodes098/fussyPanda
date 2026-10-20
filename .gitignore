@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+uploads/*
+*.log
+
+# Frontend build output
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts

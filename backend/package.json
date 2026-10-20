@@ -1,0 +1,40 @@
+{
+  "name": "fussy-panda-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "db:create": "sequelize-cli db:create --config config/config.cjs --env production",
+    "db:drop": "sequelize-cli db:drop --config config/config.cjs --env production",
+    "db:create:dev": "sequelize-cli db:create --config config/config.cjs --env development",
+    "db:drop:dev": "sequelize-cli db:drop --config config/config.cjs --env development",
+    "db:migrate": "sequelize-cli db:migrate --migrations-path migrations --config config/config.cjs --env production",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo:all --migrations-path migrations --config config/config.cjs --env production",
+    "db:migrate:dev": "sequelize-cli db:migrate --migrations-path migrations --config config/config.cjs --env development",
+    "db:migrate:undo:dev": "sequelize-cli db:migrate:undo:all --migrations-path migrations --config config/config.cjs --env development",
+    "db:reset": "npm run db:drop:dev && npm run db:create:dev && npm run db:migrate:dev",
+    "test": "node --experimental-test-module-mocks --test test/*.test.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "google-auth-library": "^10.9.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.3",
+    "nodemailer": "^10.0.13",
+    "openai": "^7.25.0",
+    "sequelize": "^6.37.8",
+    "sharp": "^0.35.5",
+    "stripe": "^23.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.5"
+  }
+}

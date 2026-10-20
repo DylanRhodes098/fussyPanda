@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist), Arial, Helvetica, sans-serif;
+}
+
+/* Brand defaults imported from the existing Fussy Panda homepage. */
+.fussy-panda {
+  --fp-primary: #ed8a7a;
+  --fp-background: #fff4ec;
+  --fp-text: #1f1f1f;
+
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: var(--fp-background);
+  color: var(--fp-text);
+  color-scheme: light;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fussy-panda ::selection {
+  background-color: var(--fp-primary);
+  color: var(--fp-text);
+}
+
+.fussy-panda :where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--fp-text);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fussy-panda *,
+  .fussy-panda *::before,
+  .fussy-panda *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
